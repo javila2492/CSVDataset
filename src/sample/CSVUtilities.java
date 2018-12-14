@@ -18,13 +18,23 @@ import javafx.stage.Stage;
 public class CSVUtilities
 {
     ArrayList<String> CSVData;
+    int qCritNum = 0;
+    int qNum = 0;
+    int bkCritNum = 0;
+    int bkNum = 0;
+    int bxCritNum = 0;
+    int bxNum = 0;
+    int mCritNum = 0;
+    int mNum = 0;
+    int sCritNum = 0;
+    int sNum = 0;
     String[] attributes;
     int numColumns;
 
     public CSVUtilities(File csv)
     {
         List<String> data = new ArrayList<>();
-        Path pathToFile = Paths.get(csv);
+        Path pathToFile = Paths.get(String.valueOf(csv));
 
         try (BufferedReader br = Files.newBufferedReader(pathToFile, StandardCharsets.US_ASCII))
         {
@@ -43,11 +53,6 @@ public class CSVUtilities
         {
             ioe.printStackTrace();
         }
-    }
-
-    public List<String> getColumnHeaders()
-    {
-        
     }
 //Return an ArrayList with the data for a column specified public List<String> getDataString(int column)
 //Return an ArrayList with the data converted to Integer public List<Integer> getDataInt(int column)
